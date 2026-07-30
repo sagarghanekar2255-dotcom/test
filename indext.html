@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body id="page">
+    <h1 id="text">Welcome to my website</h1>
+    <button onclick="changeTheme()">changeTheme</button>
+    <button onclick="normalTheme()">noramalTheme</button>
+    <script>
+        function changeTheme(){
+            document.getElementById("text").style.color = "red";
+            }
+            function normalTheme(){
+             document.getElementById("text").style.color = "black";
+            }
+            
+    </script>
+
+    
+</body>
+
+<body>
+   <h1>To-Do List</h1>
+
+<input type="text" id="task" placeholder="Enter Task">
+<button onclick="addTask()">Add Task</button>
+
+<ul id="list"></ul>
+
+<script>
+function addTask() {
+    let task = document.getElementById("task").value;
+
+    if (task == "") {
+        alert("Please enter a task");
+        return;
+    }
+
+    let li = document.createElement("li");
+    li.innerHTML = task + " <button onclick='removeTask(this)'>Delete</button>";
+
+    document.getElementById("list").appendChild(li);
+
+    document.getElementById("task").value = "";
+}
+
+function removeTask(button) {
+    button.parentElement.remove();
+}
+
+    </script>
+
+
+
+
+
+  <h2>Login From</h2>
+    <form onsubmit="return validateForm()">
+        Username:
+        <input type="text" id="username"><br><br>
+        password:
+        <input type="password" id="password"><br><br>
+        <input type="submit"value="Login">
+    </form>
+    <script>
+        function validateForm(){
+            let username = document.getElementById("username").value;
+            let password = document.getElementById("password").value;
+
+            if(username==""){
+                alert("Please enter username");
+                return false;
+            }
+            if(password==""){
+                alert("Please enter password");
+                return false;
+            }
+
+            alert("Login successful");
+            return true;
+        }
+    </script>
+</body>
+</html>
